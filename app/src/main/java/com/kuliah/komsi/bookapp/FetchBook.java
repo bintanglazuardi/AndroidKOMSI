@@ -76,6 +76,8 @@ public class FetchBook extends AsyncTask<String, Void, String> {
             int i =0;
             String title = null;
             String authors = null;
+            String desc = null;
+            String image = null;
 
             while (i < itemsArray.length()){
                 JSONObject book = itemsArray.getJSONObject(i);
@@ -88,7 +90,16 @@ public class FetchBook extends AsyncTask<String, Void, String> {
                     }else{
                         authors = "";
                     }
-
+                    if (volumeInfo.has("description")){
+                        desc = volumeInfo.getString("description");
+                    }else{
+                        desc = "";
+                    }
+                    if (volumeInfo.has("imageLinks")){
+                        image = volumeInfo.getJSONObject("imageLinks").getString("thumbnail");
+                    }else{
+                        image = "";
+                    }
                     ItemData itemData = new ItemData();
                     itemData.itemTitle = title;
                     itemData.itemSubtitle = authors;
