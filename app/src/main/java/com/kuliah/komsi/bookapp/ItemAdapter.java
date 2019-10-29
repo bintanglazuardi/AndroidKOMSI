@@ -1,5 +1,6 @@
 package com.kuliah.komsi.bookapp;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -38,7 +39,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder>{
         viewHolder.itemView.setOnClickListener(
                 new View.OnClickListener(){
                     public void onClick(View view){
-                        Toast.makeText(context, "Anda pilih " + data.itemTitle, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(context, "Anda pilih " + data.itemTitle, Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(context, DetailActivity.class);
+                        intent.putExtra("DATA", data);
+                        context.startActivity(intent);
                     }
                 }
         );

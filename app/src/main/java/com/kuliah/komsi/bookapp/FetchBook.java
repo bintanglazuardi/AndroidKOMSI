@@ -103,6 +103,8 @@ public class FetchBook extends AsyncTask<String, Void, String> {
                     ItemData itemData = new ItemData();
                     itemData.itemTitle = title;
                     itemData.itemSubtitle = authors;
+                    itemData.itemDescription = desc;
+                    itemData.itemImage = image;
                     Log.d("CLOG", "Title " + title);    //cek apakah ada data yang diperoleh dari logcat
                     itemValues.add(itemData);
                 }catch (Exception e){
