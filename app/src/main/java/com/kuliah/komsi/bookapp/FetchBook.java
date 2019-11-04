@@ -78,6 +78,9 @@ public class FetchBook extends AsyncTask<String, Void, String> {
             String authors = null;
             String desc = null;
             String image = null;
+            String publisher = null;
+            String publishedDate = null;
+            //Edittt
 
             while (i < itemsArray.length()){
                 JSONObject book = itemsArray.getJSONObject(i);
@@ -100,11 +103,26 @@ public class FetchBook extends AsyncTask<String, Void, String> {
                     }else{
                         image = "";
                     }
+                    if (volumeInfo.has("publisher")){
+                        publisher = volumeInfo.getString("publisher");
+                    }else{
+                        publisher = "";
+                    }
+                    if (volumeInfo.has("publishedDate")){
+                        publishedDate = volumeInfo.getString("publishedDate");
+                    }else{
+                        publishedDate = "";
+                    }
+                    //Edittt
+
                     ItemData itemData = new ItemData();
                     itemData.itemTitle = title;
                     itemData.itemSubtitle = authors;
                     itemData.itemDescription = desc;
                     itemData.itemImage = image;
+                    itemData.itemPublisher = publisher;
+                    itemData.itemPublishDate = publishedDate;
+                    //Editttt
                     Log.d("CLOG", "Title " + title);    //cek apakah ada data yang diperoleh dari logcat
                     itemValues.add(itemData);
                 }catch (Exception e){

@@ -8,12 +8,18 @@ public class ItemData implements Parcelable {
     public String itemSubtitle;
     public String itemImage;
     public String itemDescription;
+    public String itemPublisher;
+    public String itemPublishDate;
+    //Editt
 
     protected ItemData(Parcel in) {
         itemTitle = in.readString();
         itemSubtitle = in.readString();
         itemImage = in.readString();
         itemDescription = in.readString();
+        itemPublisher = in.readString();
+        itemPublishDate = in.readString();
+        //Editttt
     }
 
     public ItemData() {
@@ -26,6 +32,9 @@ public class ItemData implements Parcelable {
         dest.writeString(itemSubtitle);
         dest.writeString(itemImage);
         dest.writeString(itemDescription);
+        dest.writeString(itemPublisher);
+        dest.writeString(itemPublishDate);
+        //Editttt
     }
 
     @Override
